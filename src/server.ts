@@ -12,7 +12,7 @@ app.get('/:url(*)', async (req, res) => {
   const fullLink = await getFullLink(decodedUrl);
 
   if (fullLink) {
-    res.redirect(fullLink); 
+    res.redirect(307, fullLink); 
   } else {
     res.status(502).send('Failed to get the download link.');
   }
