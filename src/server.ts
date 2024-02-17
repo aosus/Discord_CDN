@@ -2,7 +2,8 @@ import { getFullLink } from "./";
 import express from 'express';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
+const HOSTNAME = "::";
 
 app.get('/:url(*)', async (req, res) => {
   const encodedUrl = req.params.url;
@@ -17,7 +18,7 @@ app.get('/:url(*)', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, HOSTNAME, () => {
   console.log(`Server is running on port ${PORT}`);
 })
 
